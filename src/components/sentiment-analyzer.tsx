@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { run, stream } from "@genkit-ai/next/client";
-import { sentimentSummarizerFlow } from "@/ai/flows/sentiment-summarizer";
+// import { run, stream } from "@genkit-ai/next/client";
+// import { sentimentSummarizerFlow } from "@/ai/flows/sentiment-summarizer";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,8 +14,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Frown, Loader2, Star, MessageSquareQuote } from "lucide-react";
-import type { SentimentSummarizerOutput } from "@/ai/flows/sentiment-summarizer";
-import { getSentimentSummary } from "@/app/admin/actions";
+// import type { SentimentSummarizerOutput } from "@/ai/flows/sentiment-summarizer";
+// import { getSentimentSummary } from "@/app/admin/actions";
 
 const formSchema = z.object({
   reviews: z.string().min(10, "Please enter at least one review."),
@@ -30,7 +30,8 @@ const exampleReviews = [
 ].join('\n');
 
 export function SentimentAnalyzer() {
-  const [summary, setSummary] = useState<SentimentSummarizerOutput | null>(null);
+  // CHANGED: Used <any> here because SentimentSummarizerOutput is commented out
+  const [summary, setSummary] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,11 +47,16 @@ export function SentimentAnalyzer() {
     setError(null);
     setSummary(null);
 
-    const reviewsArray = values.reviews.split("\n").filter(r => r.trim() !== "");
+    // const reviewsArray = values.reviews.split("\n").filter(r => r.trim() !== "");
     
     try {
-      const result = await getSentimentSummary({ reviews: reviewsArray });
-      setSummary(result);
+      // CHANGED: Commented out the server action call to prevent build errors
+      // const result = await getSentimentSummary({ reviews: reviewsArray });
+      // setSummary(result);
+      
+      // Optional: Log to console so you know it's disabled
+      console.log("Sentiment analysis is disabled in static export mode.");
+      
     } catch (err) {
       setError("An error occurred while analyzing sentiment. Please try again.");
       console.error(err);
