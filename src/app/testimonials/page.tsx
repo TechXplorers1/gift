@@ -104,49 +104,53 @@ export default function TestimonialsPage() {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
-                control={form.control}
-                name="service"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Service Received</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-  <SelectValue placeholder="Select a service" />
-</SelectTrigger> {/* ✅ Fixed */}
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="auto">Auto Detailing</SelectItem>
-                        <SelectItem value="house">House Cleaning</SelectItem>
-                        <SelectItem value="combo">Combo Deal</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="rating"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Your Rating</FormLabel>
-                     <Select onValueChange={field.onChange} defaultValue={String(field.value)}>
-                      <FormControl>
-                       <SelectTrigger>
-  <SelectValue placeholder="Select a rating" />
-</SelectTrigger> {/* ✅ Fixed */}
-                      </FormControl>
-                      <SelectContent>
-                        {[5, 4, 3, 2, 1].map(r => 
-                          <SelectItem key={r} value={String(r)}>{r} Star{r > 1 ? 's' : ''}</SelectItem>
-                        )}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+  control={form.control}
+  name="service"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Service Received</FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <FormControl>
+          {/* FormControl must wrap ONLY the SelectTrigger */}
+          <SelectTrigger>
+            <SelectValue placeholder="Select a service" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          <SelectItem value="auto">Auto Detailing</SelectItem>
+          <SelectItem value="house">House Cleaning</SelectItem>
+          <SelectItem value="combo">Combo Deal</SelectItem>
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+             <FormField
+  control={form.control}
+  name="rating"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Your Rating</FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={String(field.value)}>
+        <FormControl>
+          {/* FormControl must wrap ONLY the SelectTrigger */}
+          <SelectTrigger>
+            <SelectValue placeholder="Select a rating" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          {[5, 4, 3, 2, 1].map((r) => (
+            <SelectItem key={r} value={String(r)}>
+              {r} Star{r > 1 ? "s" : ""}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
             </div>
             <FormField
               control={form.control}
