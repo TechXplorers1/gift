@@ -112,8 +112,8 @@ export default function TestimonialsPage() {
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a service" />
-                        </Trigger>
+  <SelectValue placeholder="Select a service" />
+</SelectTrigger> {/* ✅ Fixed */}
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="auto">Auto Detailing</SelectItem>
@@ -133,9 +133,9 @@ export default function TestimonialsPage() {
                     <FormLabel>Your Rating</FormLabel>
                      <Select onValueChange={field.onChange} defaultValue={String(field.value)}>
                       <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a rating" />
-                        </Trigger>
+                       <SelectTrigger>
+  <SelectValue placeholder="Select a rating" />
+</SelectTrigger> {/* ✅ Fixed */}
                       </FormControl>
                       <SelectContent>
                         {[5, 4, 3, 2, 1].map(r => 

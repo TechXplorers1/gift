@@ -1,7 +1,8 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export', // <--- 1. REQUIRED: Tells Next.js to generate HTML files (for the 'out' folder)
+  
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -9,6 +10,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true, // <--- 2. REQUIRED: Disables server-side image optimization (cannot be done on static hosting)
     remotePatterns: [
       {
         protocol: 'https',
@@ -35,7 +37,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-  }, devIndicators: false,
+  },  devIndicators: false,
 };
 
 export default nextConfig;
