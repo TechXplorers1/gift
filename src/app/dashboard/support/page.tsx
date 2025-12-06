@@ -10,7 +10,7 @@ const supportActions = [
     title: "Email Support",
     description: "Get a detailed response within 24 hours.",
     buttonText: "Send an Email",
-    href: "mailto:hello@giftauto.com",
+    href: "mailto:hello@fixsphere.com",
     isLink: true,
   },
   {

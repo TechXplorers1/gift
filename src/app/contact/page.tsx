@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact-form";
 
 const contactDetails = [
   { icon: <Phone className="h-6 w-6 text-primary" />, title: "Phone", value: "(503) 555-1234" },
-  { icon: <Mail className="h-6 w-6 text-primary" />, title: "Email", value: "hello@giftauto.com" },
+  { icon: <Mail className="h-6 w-6 text-primary" />, title: "Email", value: "hello@fixsphere.com" },
   { icon: <Clock className="h-6 w-6 text-primary" />, title: "Hours", value: "Mon - Sat, 8am - 6pm" },
   { icon: <MapPin className="h-6 w-6 text-primary" />, title: "Service Area", value: "Portland, OR & 50-mile radius" },
 ];

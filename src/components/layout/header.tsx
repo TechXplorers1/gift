@@ -1,7 +1,7 @@
-
 "use client";
 
 import Link from "next/link";
+// ADDED: Re-imported Image component
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, User } from "lucide-react";
@@ -45,21 +45,19 @@ export function Header() {
   const router = useRouter();
 
   useEffect(() => {
-    // This is a simple way to check for a cookie on the client side.
-    // In a real app, you'd manage this as part of a proper auth context.
     const loggedIn = document.cookie.includes('isLoggedIn=true');
     setIsLoggedIn(loggedIn);
-  }, [pathname]); // Rerun on path change to update login status
+  }, [pathname]); 
 
   const handleLogout = async () => {
     await logout();
-    router.refresh(); // Force a refresh to re-check auth state and redirect
+    router.refresh(); 
   };
 
   const NavLink = ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => (
     <Link
       href={href}
-      className={cn("text-sm font-medium transition-colors hover:text-primary", className)}
+      className={cn("text-base font-medium transition-colors hover:text-primary", className)}
       onClick={() => setIsMobileMenuOpen(false)}
     >
       {children}
@@ -71,7 +69,7 @@ export function Header() {
       link.dropdown ? (
         <DropdownMenu key={link.name}>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className={cn("text-sm font-medium hover:text-primary px-0 sm:px-3", isMobile && "w-full justify-start py-2 text-lg")}>
+            <Button variant="ghost" className={cn("text-base font-medium hover:text-primary px-0 sm:px-3", isMobile && "w-full justify-start py-2 text-lg")}>
               {link.name}
             </Button>
           </DropdownMenuTrigger>
@@ -94,16 +92,30 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
+        {/* Logo Section */}
         <div className="flex items-center" style={{ flex: '1 0 0' }}>
-          <Link href="/" className="flex items-center">
-            <Image src="https://github.com/Sapareux07/pics/blob/main/Group%201.png?raw=true" alt="Logo" width={160} height={40} className="h-auto w-auto" />
+          {/* UPDATED: Added gap-2 to separate logo and text */}
+          <Link href="/" className="flex items-center gap-2">
+            {/* ADDED: Logo Image */}
+            <Image 
+              src="/fixsphere-logo.png" 
+              alt="Fix Sphere Logo" 
+              width={40} 
+              height={40} 
+              className="h-10 w-auto object-contain" 
+            />
+            <span className="text-2xl md:text-3xl font-extrabold text-primary tracking-tight whitespace-nowrap">
+              FIX SPHERE
+            </span>
           </Link>
         </div>
         
-        <nav className="hidden md:flex items-center justify-center gap-6 text-sm">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center justify-center gap-6 text-base">
           {renderNavLinks()}
         </nav>
 
+        {/* Right Side Icons */}
         <div className="flex items-center justify-end gap-2" style={{ flex: '1 0 0' }}>
           <ThemeToggle />
           {isLoggedIn ? (
@@ -134,6 +146,7 @@ export function Header() {
             </Button>
           )}
 
+          {/* Mobile Menu Sheet */}
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
@@ -144,8 +157,18 @@ export function Header() {
             <SheetContent side="right" className="w-full">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center mb-8">
-                  <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
-                     <Image src="https://github.com/Sapareux07/pics/blob/main/Group%201.png?raw=true" alt="Logo" width={160} height={40} className="h-auto w-auto" />
+                  {/* UPDATED: Mobile Menu Header with Logo + Text */}
+                  <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Image 
+                        src="/public/fixsphere-logo.png" 
+                        alt="Fix Sphere Logo" 
+                        width={40} 
+                        height={40} 
+                        className="h-10 w-auto object-contain" 
+                      />
+                      <span className="text-2xl font-extrabold text-primary tracking-tight">
+                        FIX SPHERE
+                      </span>
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />

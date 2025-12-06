@@ -24,7 +24,7 @@ export default function ComboDealsPage() {
             <Home className="h-16 w-16" />
           </div>
           <p className="text-lg text-center text-muted-foreground mb-6">
-            Experience the complete Gift Auto renewal. We'll perform our Premium Auto Detail on your vehicle and a Deep Clean for your home on the same day, giving you back a sparkling car and a serene living space. It's the perfect way to reset and refresh your two most important environments.
+            Experience the complete Fix Sphere Auto renewal. We'll perform our Premium Auto Detail on your vehicle and a Deep Clean for your home on the same day, giving you back a sparkling car and a serene living space. It's the perfect way to reset and refresh your two most important environments.
           </p>
           <div className="text-center">
             <Button asChild size="lg" className="rounded-full">

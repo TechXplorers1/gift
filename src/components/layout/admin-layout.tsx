@@ -119,7 +119,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
                 <nav className="grid gap-6 text-lg font-medium">
                   <Link href="/" className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base">
                     <Image src="https://github.com/Sapareux07/pics/blob/main/Group%201.png?raw=true" alt="Logo" width={100} height={25} />
-                    <span className="sr-only">Gift</span>
+                    <span className="sr-only">FIX SPHERE</span>
                   </Link>
                   {navLinks.map((link) => (
                     <Link

@@ -22,11 +22,24 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center">
-              <Image src="https://github.com/Sapareux07/pics/blob/main/Group%201.png?raw=true" alt="Logo" width={160} height={40} className="h-auto w-auto" />
+            {/* UPDATED: Logo and Text side by side */}
+            <Link href="/" className="flex items-center gap-2">
+              <Image 
+                src="/fixsphere-logo.png" 
+                alt="Fix Sphere Logo" 
+                width={40} 
+                height={40} 
+                className="h-10 w-auto object-contain" 
+              />
+              <span className="text-2xl font-extrabold text-primary tracking-tight whitespace-nowrap">
+                FIX SPHERE
+              </span>
             </Link>
-            <p className="mt-2 text-muted-foreground">Auto Mobile Detailing & House Cleaning.</p>
+            <p className="mt-4 text-muted-foreground text-sm">
+              Auto Mobile Detailing & House Cleaning.
+            </p>
           </div>
+          
           <div className="grid grid-cols-2 md:col-span-3 gap-8">
             <div>
               <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
@@ -55,7 +68,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Gift Auto Mobile Detailing & House Cleaning. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Fix Sphere. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

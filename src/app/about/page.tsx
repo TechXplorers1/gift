@@ -16,7 +16,7 @@ export default function AboutUsPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold">About Gift</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">About Fix Sphere</h1>
             <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
               Learn about our journey, our values, and the people who make our service a gift.
             </p>

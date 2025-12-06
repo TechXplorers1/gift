@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Gift Auto Mobile Detailing & House Cleaning</title>
+        <title>Fix Sphere</title>
         <meta name="description" content="A Gift of Clean – Renewed by Grace" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

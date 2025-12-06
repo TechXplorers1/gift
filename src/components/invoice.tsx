@@ -36,7 +36,7 @@ export const Invoice = React.forwardRef<HTMLDivElement, InvoiceProps>(({ data, s
               <p className="text-sm text-gray-600 mt-2">
                 123 Clean Street, Portland, OR, 97201<br />
                 (503) 555-1234<br />
-                hello@giftauto.com
+                hello@fixsphere.com
               </p>
             </div>
             <div className="text-right">

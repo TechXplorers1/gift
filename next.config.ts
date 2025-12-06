@@ -1,7 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export', // <--- 1. REQUIRED: Tells Next.js to generate HTML files (for the 'out' folder)
+  output: 'export', 
+  trailingSlash: true,// <--- 1. REQUIRED: Tells Next.js to generate HTML files (for the 'out' folder)
   
   typescript: {
     ignoreBuildErrors: true,
