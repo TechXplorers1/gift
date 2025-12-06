@@ -1,9 +1,8 @@
-
-"use server";
+// "use server"; // <--- COMMENTED OUT
 
 import { z } from "zod";
-import { redirect } from 'next/navigation'
-import { cookies } from 'next/headers'
+// import { redirect } from 'next/navigation' // <--- COMMENTED OUT
+// import { cookies } from 'next/headers'     // <--- COMMENTED OUT
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -14,28 +13,27 @@ const loginSchema = z.object({
 export async function login(formData: FormData) {
   const values = Object.fromEntries(formData.entries());
   
+  // validation still works fine on the client!
   const parsed = loginSchema.safeParse(values);
 
   if (!parsed.success) {
     console.error("Invalid login data:", parsed.error.flatten().fieldErrors);
-    // In a real app, you would redirect back with an error message
     return { success: false, error: "Invalid form data." };
   }
 
-  // Here you would typically handle authentication against a database
-  // or an authentication provider like Firebase Auth.
-  console.log("Login attempt for:", parsed.data.email, "as", parsed.data.role);
-
-  cookies().set('isLoggedIn', 'true');
+  // --- SERVER LOGIC REMOVED FOR STATIC EXPORT ---
+  // cookies().set('isLoggedIn', 'true');
   
-  if (parsed.data.role === 'admin') {
-    redirect('/admin');
-  } else {
-    redirect('/dashboard');
-  }
+  console.log("Mock Login attempt for:", parsed.data.email, "as", parsed.data.role);
+
+  // In a real static app, you handle redirect inside the Component (using useRouter), 
+  // not here in the action. We return success so the component knows to redirect.
+  return { success: true, role: parsed.data.role };
 }
 
 export async function logout() {
-  cookies().delete('isLoggedIn');
-  redirect('/');
+  // cookies().delete('isLoggedIn');
+  // redirect('/');
+  console.log("Mock Logout");
+  return { success: true };
 }
