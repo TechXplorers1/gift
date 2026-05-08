@@ -24,12 +24,12 @@ export function Footer() {
           <div className="md:col-span-1">
             {/* UPDATED: Logo and Text side by side */}
             <Link href="/" className="flex items-center gap-2">
-              <Image 
-                src="/fixsphere-logo.png" 
-                alt="Fix Sphere Logo" 
-                width={40} 
-                height={40} 
-                className="h-10 w-auto object-contain" 
+              <Image
+                src="/fixsphere-logo.png"
+                alt="Fix Sphere Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto object-contain"
               />
               <span className="text-2xl font-extrabold text-primary tracking-tight whitespace-nowrap">
                 FIX SPHERE
@@ -39,7 +39,7 @@ export function Footer() {
               Auto Mobile Detailing & House Cleaning.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:col-span-3 gap-8">
             <div>
               <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
@@ -69,6 +69,18 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t pt-4 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Fix Sphere. All Rights Reserved.</p>
+
+          <p className="mt-2">
+            Developed by{" "}
+            <a
+              href="https://techxplorers.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold hover:text-primary transition-colors"
+            >
+              TechXplorers Private Limited
+            </a>
+          </p>
         </div>
       </div>
     </footer>
